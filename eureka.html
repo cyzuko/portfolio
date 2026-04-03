@@ -24,8 +24,18 @@
     .nav-back:hover { color: var(--fg); }
     .nav-back:hover::before { transform: translateX(-3px); }
 
-    main { position: relative; z-index: 10; padding-top: var(--nav-h); }
+          main { position: relative; z-index: 10; padding-top: var(--nav-h); }
+          .hero-subtitle a {
+        color: #bbb;
+        text-decoration: none;
+        border-bottom: 1px solid #333;
+        transition: 0.3s;
+      }
 
+      .hero-subtitle a:hover {
+        color: #fff;
+        border-bottom: 1px solid #fff;
+      }
     .project-hero { min-height: 60vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 5rem 8vw 4rem; position: relative; overflow: hidden; }
     .project-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%, rgba(232,228,222,.04) 0%, transparent 60%); }
     .hero-eyebrow { font-family: 'Cinzel', serif; font-size: .6rem; letter-spacing: .34em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.2rem; opacity: 0; animation: fadeUp .6s .1s forwards; }
@@ -109,6 +119,11 @@
     <div class="hero-eyebrow">Web App — 2026</div>
     <h1 class="hero-title">EUREKA</h1>
     <p class="hero-subtitle">Plataforma de gestão de explicações com mensagens em tempo real, estatísticas e acompanhamento de alunos.</p>
+    <p class="hero-subtitle">
+  <a href="https://github.com/cyzuko/PEDmateus" target="_blank">
+    Ver projeto no GitHub
+  </a>
+</p>
     <div class="hero-tags">
       <span class="hero-tag">Node.js</span>
       <span class="hero-tag">MySQL</span>
