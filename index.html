@@ -64,6 +64,7 @@
     .nav-links li:nth-child(2) { animation-delay: 0.1s; }
     .nav-links li:nth-child(3) { animation-delay: 0.15s; }
     .nav-links li:nth-child(4) { animation-delay: 0.2s; }
+    .nav-links li:nth-child(5) { animation-delay: 0.25s; }
     @keyframes navFadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
     .nav-links a { text-decoration: none; color: var(--muted); font-family: 'Cinzel', serif; font-size: .62rem; letter-spacing: .24em; text-transform: uppercase; transition: color .3s; position: relative; }
     .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--fg); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.23,1,.32,1); }
@@ -88,7 +89,6 @@
     .hero-eyebrow { font-family: 'Cinzel', serif; font-size: .6rem; letter-spacing: .34em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; opacity: 0; }
     .hero-eyebrow.go { animation: fadeUp .6s cubic-bezier(.23,1,.32,1) forwards; }
 
-    /* 3D TITLE */
     .hero-title { font-family: 'Metamorphous', serif; font-size: clamp(2.8rem, 5vw, 5rem); line-height: 1.08; letter-spacing: .02em; color: var(--fg); margin-bottom: 1.5rem; perspective: 600px; }
     .hero-title .word { display: inline-block; overflow: hidden; }
     .hero-title .word span { display: block; opacity: 0; transform: rotateX(-90deg) translateY(20px); transform-origin: top; transition: opacity 0.7s cubic-bezier(.23,1,.32,1), transform 0.7s cubic-bezier(.23,1,.32,1); }
@@ -99,7 +99,6 @@
     .hero-ctas { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; opacity: 0; }
     .hero-ctas.go { animation: fadeUp .8s .38s cubic-bezier(.23,1,.32,1) forwards; }
 
-    /* MAGNETIC BUTTONS */
     .btn-primary { position: relative; background: var(--fg); color: var(--bg); padding: .82rem 2.2rem; text-decoration: none; font-family: 'Cinzel', serif; font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; transition: opacity .25s, transform .2s; display: inline-block; overflow: hidden; }
     .btn-primary::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.08); transform: translateX(-101%); transition: transform 0.4s cubic-bezier(.23,1,.32,1); }
     .btn-primary:hover { opacity: .88; transform: translateY(-2px); }
@@ -147,7 +146,6 @@
     .skill-card::after { content: ''; position: absolute; bottom: 0; right: 0; left: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(212,208,204,.12), transparent); transform: scaleX(0); transform-origin: right; transition: transform .55s .05s cubic-bezier(.23,1,.32,1); }
     .skill-card:hover { background: #161616; }
     .skill-card:hover::before, .skill-card:hover::after { transform: scaleX(1); }
-    /* shine sweep on skill card */
     .skill-card .shine { position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(105deg, transparent, rgba(212,208,204,.04) 50%, transparent); transition: left 0.6s cubic-bezier(.23,1,.32,1); pointer-events: none; }
     .skill-card:hover .shine { left: 160%; }
     .skill-num { font-family: 'Metamorphous', serif; font-size: 1.1rem; color: var(--muted); opacity: .35; margin-bottom: .75rem; }
@@ -157,17 +155,35 @@
     .tag { font-family: 'Cinzel', serif; font-size: .55rem; letter-spacing: .1em; text-transform: uppercase; padding: .2rem .6rem; border: 1px solid var(--border); color: var(--muted); transition: border-color .3s, color .3s, background .3s; }
     .skill-card:hover .tag { border-color: rgba(212,208,204,.2); color: var(--fg); }
 
+    /* TIMELINE */
+    #experience { padding: 7rem 8vw; }
+    .timeline { margin-top: 3.5rem; position: relative; padding-left: 2.4rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 40px; width: 1px; background: linear-gradient(to bottom, rgba(212,208,204,.22), rgba(212,208,204,.04)); }
+    .tl-item { position: relative; padding-bottom: 3rem; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot { position: absolute; left: -2.4rem; top: 8px; width: 7px; height: 7px; border: 1px solid rgba(212,208,204,.3); background: var(--bg); transform: translateX(-3px); transition: background .35s, border-color .35s; }
+    .tl-item:hover .tl-dot { background: var(--fg); border-color: var(--fg); }
+    .tl-connector { position: absolute; left: -2.4rem; top: 15px; width: 2.4rem; height: 1px; background: linear-gradient(to right, rgba(212,208,204,.12), transparent); transform: translateX(-100%) translateX(7px); }
+    .tl-date { font-family: 'Cinzel', serif; font-size: .56rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); opacity: .6; margin-bottom: .4rem; }
+    .tl-name { font-family: 'Metamorphous', serif; font-size: 1.1rem; color: var(--fg); margin-bottom: .2rem; line-height: 1.25; }
+    .tl-role { font-family: 'Cinzel', serif; font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); opacity: .7; margin-bottom: .65rem; }
+    .tl-desc { font-style: italic; color: var(--muted); font-size: .9rem; line-height: 1.75; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .85rem; }
+    .tl-item:hover .tl-dot { background: var(--fg); }
+    .tl-item:hover .tl-name { color: var(--fg); }
+    /* edu highlight */
+    .tl-item.tl-edu .tl-dot { border-color: rgba(212,208,204,.5); }
+    .tl-item.tl-edu .tl-name { opacity: .9; }
+
     /* WORKS */
-    #works { padding: 7rem 8vw; }
+    #works { padding: 7rem 8vw; background: var(--bg2); }
     .works-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
 
-    /* TILT CARD */
-    .work-card { background: var(--bg2); border: 1px solid var(--border); overflow: hidden; transition: border-color .4s, box-shadow .4s; cursor: none; will-change: transform; }
+    .work-card { background: var(--bg); border: 1px solid var(--border); overflow: hidden; transition: border-color .4s, box-shadow .4s; cursor: none; will-change: transform; }
     .work-card:hover { border-color: rgba(212,208,204,.18); box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(212,208,204,.04); }
     .work-thumb { height: 180px; background: linear-gradient(135deg, #1a1a1a 0%, #141414 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
     .work-thumb img { width: 100%; height: 100%; object-fit: contain; object-position: center; filter: grayscale(1); opacity: .65; padding: 1rem; transition: opacity .45s, filter .45s, transform .6s cubic-bezier(.23,1,.32,1); }
     .work-card:hover .work-thumb img { opacity: .9; filter: grayscale(0.5); transform: scale(1.04); }
-    /* shimmer overlay */
     .work-thumb::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent 0%, rgba(212,208,204,.04) 50%, transparent 100%); opacity: 0; transition: opacity .4s; }
     .work-card:hover .work-thumb::after { opacity: 1; }
     .work-info { padding: 1.75rem; }
@@ -205,7 +221,7 @@
     .btn-details::after { content: '→'; }
 
     /* CONTACT */
-    #contact { padding: 7rem 8vw; background: var(--bg2); text-align: center; }
+    #contact { padding: 7rem 8vw; text-align: center; }
     #contact > p { font-style: italic; color: var(--muted); max-width: 380px; margin: 0 auto 2rem; }
     .contact-direct { margin-top: 1.5rem; font-family: 'Cinzel', serif; font-size: .65rem; letter-spacing: .2em; color: var(--muted); text-transform: uppercase; }
     .contact-direct a { color: var(--fg); text-decoration: none; position: relative; padding-bottom: 3px; display: inline-block; }
@@ -258,7 +274,7 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       #hero { padding-left: 6vw; padding-right: 6vw; }
-      #about, #skills, #works, #contact { padding-left: 6vw; padding-right: 6vw; }
+      #about, #skills, #works, #experience, #contact { padding-left: 6vw; padding-right: 6vw; }
       .skills-grid { grid-template-columns: 1fr; }
       .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
       .section-title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
@@ -267,6 +283,7 @@
       .photo-frame { width: 180px; height: 220px; }
       .photo-frame::after { display: none; }
       .modal { max-height: 92vh; }
+      .timeline { padding-left: 1.6rem; }
     }
   </style>
 </head>
@@ -301,6 +318,7 @@
   <ul class="nav-links" id="nav-links">
     <li><a href="#about">Sobre</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Percurso</a></li>
     <li><a href="#works">Trabalhos</a></li>
     <li><a href="#contact">Contacto</a></li>
   </ul>
@@ -312,6 +330,7 @@
 <div class="nav-mobile" id="nav-mobile">
   <a href="#about" onclick="closeMenu()">Sobre</a>
   <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#experience" onclick="closeMenu()">Percurso</a>
   <a href="#works" onclick="closeMenu()">Trabalhos</a>
   <a href="#contact" onclick="closeMenu()">Contacto</a>
 </div>
@@ -343,7 +362,7 @@
 <section id="about">
   <div class="about-art reveal">
     <div class="about-sigil">
-      <div class="sigil-glow"></div>.</p>
+      <div class="sigil-glow"></div>
       <div class="sigil-ring"></div>
       <img src="./img/pfp.jpg" class="sigil-img" alt="" />
     </div>
@@ -400,6 +419,85 @@
       <div class="skill-desc">Atualmente a estudar...</div>
       <div class="skill-tags"><span class="tag">...</span></div>
     </div>
+  </div>
+</section>
+
+<div class="orn-div"><span>✦</span></div>
+
+<!-- ═══════════════════════════════════════════
+     TIMELINE — PERCURSO
+════════════════════════════════════════════ -->
+<section id="experience">
+  <p class="section-label reveal">Percurso</p>
+  <h2 class="section-title reveal reveal-delay-1">Experiência &<br/>Formação</h2>
+
+  <div class="timeline">
+
+    <!-- 1 — Licenciatura (mais recente por conclusão) -->
+    <div class="tl-item tl-edu reveal reveal-delay-1">
+      <div class="tl-dot"></div>
+      <div class="tl-date">set 2022 — fev 2026</div>
+      <div class="tl-name">Instituto Politécnico de Viana do Castelo</div>
+      <div class="tl-role">Licenciatura · Eng. Computação Gráfica e Multimédia</div>
+      <div class="tl-desc">Programação, multimédia, animação 3D e desenvolvimento de software.</div>
+      <div class="tl-tags">
+        <span class="tag">Programação</span>
+        <span class="tag">3D</span>
+        <span class="tag">Multimédia</span>
+        <span class="tag">Design</span>
+      </div>
+    </div>
+
+    <!-- 2 — EUREKA -->
+    <div class="tl-item reveal reveal-delay-2">
+      <div class="tl-dot"></div>
+      <div class="tl-date">set 2025 — fev 2026 · 6 meses</div>
+      <div class="tl-name">EUREKA — WebApp</div>
+      <div class="tl-role">Freelance · Full-Stack</div>
+      <div class="tl-desc">Plataforma de gestão de explicações com mensagens em tempo real, estatísticas e acompanhamento de alunos.</div>
+      <div class="tl-tags">
+        <span class="tag">Node.js</span>
+        <span class="tag">Laravel</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">WebSockets</span>
+        <span class="tag">REST API</span>
+      </div>
+    </div>
+
+    <!-- 3 — DigiFatura -->
+    <div class="tl-item reveal reveal-delay-3">
+      <div class="tl-dot"></div>
+      <div class="tl-date">mai 2025 — jun 2025 · 2 meses</div>
+      <div class="tl-name">DigiFatura — WebApp</div>
+      <div class="tl-role">Freelance · Full-Stack</div>
+      <div class="tl-desc">Gestão de faturas com OCR, dashboard de estatísticas e notificações em tempo real.</div>
+      <div class="tl-tags">
+        <span class="tag">Node.js</span>
+        <span class="tag">Laravel</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">OCR</span>
+        <span class="tag">REST API</span>
+      </div>
+    </div>
+
+    <!-- 4 — ULSAM -->
+    <div class="tl-item reveal reveal-delay-4">
+      <div class="tl-dot"></div>
+      <div class="tl-date">mai 2022 — ago 2022 · 4 meses</div>
+      <div class="tl-name">ULSAM — Hospital de Santa Luzia</div>
+      <div class="tl-role">Estágio · Técnico Elétrico</div>
+      <div class="tl-desc">Manutenção elétrica no Hospital de Santa Luzia, Viana do Castelo.</div>
+    </div>
+
+    <!-- 5 — Instalações Elétricas do Norte -->
+    <div class="tl-item reveal reveal-delay-4">
+      <div class="tl-dot"></div>
+      <div class="tl-date">mai 2021 — ago 2021 · 4 meses</div>
+      <div class="tl-name">Instalações Elétricas do Norte</div>
+      <div class="tl-role">Estágio · Técnico Elétrico</div>
+      <div class="tl-desc">Instalação e manutenção de instalações elétricas.</div>
+    </div>
+
   </div>
 </section>
 
@@ -529,13 +627,11 @@ window.addEventListener('load', () => {
       document.getElementById('curtain').classList.add('open');
       setTimeout(() => {
         document.body.classList.remove('no-scroll');
-        // trigger hero animations
         document.getElementById('hero-eyebrow').classList.add('go');
         document.getElementById('word1').classList.add('go');
         setTimeout(() => document.getElementById('word2').classList.add('go'), 120);
         document.getElementById('hero-ctas').classList.add('go');
         document.getElementById('hero-image').classList.add('go');
-        // nav
         const logo = document.getElementById('nav-logo');
         logo.classList.add('visible');
         document.querySelectorAll('#nav-links li').forEach((li, i) => {
@@ -557,7 +653,7 @@ document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; })
   ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
   requestAnimationFrame(animCursor);
 })();
-const hoverEls = 'a, button, .work-card, .skill-card, .modal-close';
+const hoverEls = 'a, button, .work-card, .skill-card, .modal-close, .tl-item';
 document.addEventListener('mouseover', e => {
   if (e.target.closest(hoverEls)) { dot.classList.add('hovering'); ring.classList.add('hovering'); }
   else { dot.classList.remove('hovering'); ring.classList.remove('hovering'); }
